@@ -14,6 +14,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { FaTasks } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authLinLout } from "../redux/authSlice";
@@ -64,7 +65,7 @@ const Navbar = () => {
                 color={"lightgreen"}
                 borderBottom="1px solid lightgreen" // Adding underline style
               >
-               TaskNest...
+              TaskNest...
               </Heading>
             </Link>
           </Box>

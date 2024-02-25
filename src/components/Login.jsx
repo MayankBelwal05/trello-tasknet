@@ -15,7 +15,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import axios from "axios";
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -72,7 +71,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="bg-[#7f7b7b] flex h-[38rem] items-center">
+    <div className="bg-[#b0becf] flex h-[38rem] items-center" >
       <Container>
         <Box
           p={"2rem"}
