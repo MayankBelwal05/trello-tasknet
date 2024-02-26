@@ -20,6 +20,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { authLinLout } from "../redux/authSlice";
 import axios from "axios";
 import { HamburgerIcon } from "@chakra-ui/icons";
+
 // import React from "react";
 // askdbfahkdfdf
 const Navbar = () => {
@@ -65,7 +66,9 @@ const Navbar = () => {
                 color={"lightgreen"}
                 borderBottom="1px solid lightgreen" // Adding underline style
               >
-              TaskNest...
+             <div style={{display:"flex" ,gap:"20px"}}>
+             TaskNest<FaTasks />
+             </div>
               </Heading>
             </Link>
           </Box>

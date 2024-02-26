@@ -13,13 +13,18 @@ import {
   ModalOverlay,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
+
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { authLinLout } from "../redux/authSlice";
 import { Link } from "react-router-dom";
+import backgroundImage from "../../src/assets/logi.jpg"; 
+ 
+
 
 const Login = () => {
   //   const [username, setUserName] = useState("");
@@ -30,6 +35,8 @@ const Login = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const navigate = useNavigate();
+const toast = useToast();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,11 +59,25 @@ const Login = () => {
         setShowModal(true);
         setModalMessage("Login successful");
         dispatch(authLinLout(true));
+        toast({
+          title: "You have sucessfully logged in",
+          status: "success",
+          duration: 1000,
+          isClosable: true,
+        });
         setTimeout(() => {
           navigate("/dashboard");
         }, 1000);
+        
       } else {
         console.error("Login failed");
+        toast({
+          title: "Login failed",
+          description: "Please try again",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
       }
     } catch (error) {
       setShowModal(true);
@@ -71,31 +92,41 @@ const Login = () => {
     }
   };
   return (
-    <div className="bg-[#b0becf] flex h-[38rem] items-center" >
+    <div className="bg-[#b0becf] flex h-[38rem] items-center" style={{
+      backgroundImage: `url(${backgroundImage})`, // Set the background image
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      minHeight: "100vh",
+    }}>
       <Container>
         <Box
-          p={"2rem"}
-          bg={"white"}
-          borderRadius={10}
-          boxShadow={"0px 9px 88px -1px rgba(157,159,119,0.89)"}
+           p={"2rem"}
+           bg={"rgba(255,255,255,0.20)"} // Set the background color
+           borderRadius={10}
+           boxShadow={"0px 9px 88px -1px rgba(157,159,119,0.89)"}
+           style={{ backdropFilter: 'blur(5px)' }}
         >
           <form onSubmit={handleSubmit}>
-            <Heading as={"h1"} color={"green"} textAlign={"center"} mb={4}>
+            <Heading as={"h1"} color={"white"} textAlign={"center"} mb={4}>
               Login
             </Heading>
             <FormControl>
               <Stack spacing={5}>
                 <Input
                   type="email"
+                  color="white"
                   placeholder="Email"
-                  border={"1px solid gray"}
+                  _placeholder={{ color: 'white' }} 
+                  border={"1px solid white"}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <Input
                   type="password"
                   placeholder="Password"
-                  border={"1px solid gray"}
+                  _placeholder={{ color: 'white' }} 
+                  color="white"
+                  border={"1px solid white"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -103,9 +134,9 @@ const Login = () => {
                   Login
                 </Button>
 
-                <Text textAlign={"center"}>
+                <Text textAlign={"center"} color="black">
                   Don't have an account{" "}
-                  <Text as={Link} to="/signup" color="green" fontWeight="bold">
+                  <Text as={Link} to="/signup" color="black" fontWeight="bold">
                     Signup
                   </Text>
                 </Text>
