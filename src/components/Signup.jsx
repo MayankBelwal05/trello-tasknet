@@ -31,7 +31,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-
+import backgroundImage from "../../src/assets/bg.jpg"; 
 // box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 // box-shadow: 0px 9px 40px 11px rgba(255,127,5,0.44);
 // 0px 9px 40px 11px rgba(255,127,5,0.44);
@@ -75,7 +75,12 @@ const Signup = () => {
     }
   };
   return (
-    <div className="bg-[#7f7b7b] flex h-[38rem] items-center">
+    <div className="flex h-[38rem] items-center" style={{
+      backgroundImage: `url(${backgroundImage})`, // Set the background image
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      minHeight: "100vh",
+    }}>
       <Container>
         <Box
           p={"2rem"}

@@ -21,7 +21,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
-
+import bgImg from "../assets/bg.jpg";
 import { useEffect, useState } from "react";
 import NoteCard from "./NoteCard";
 
@@ -124,7 +124,7 @@ const Dashboard = () => {
 
   return (
     <Box
-      bgImage="url('src/components/bg.jpg')"
+      bgImage={bgImg}
       bgSize="cover"
       minHeight="100vh"
       padding="20px"

@@ -14,11 +14,13 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { FaTasks } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authLinLout } from "../redux/authSlice";
 import axios from "axios";
 import { HamburgerIcon } from "@chakra-ui/icons";
+
 // import React from "react";
 // askdbfahkdfdf
 const Navbar = () => {
@@ -64,7 +66,9 @@ const Navbar = () => {
                 color={"lightgreen"}
                 borderBottom="1px solid lightgreen" // Adding underline style
               >
-               TaskNest...
+             <div style={{display:"flex" ,gap:"20px"}}>
+             TaskNest<FaTasks />
+             </div>
               </Heading>
             </Link>
           </Box>

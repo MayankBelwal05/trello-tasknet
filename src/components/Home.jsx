@@ -10,16 +10,16 @@ const Home = () => {
 
   return (
     <>
-      <Box
-        className="bg-[#7f7b7b] flex justify-center"
-        mt={{ base: "0", md: "4rem" }}
+      <Box 
+        className="bg-[#6e70cf] flex justify-center"
+        mt={{ base: "0" }}
       >
         <Box
           className="flex items-center justify-center   gap-[3rem]"
           // border={"2px solid black"}
           flexDirection={{ base: "column", md: "row" }}
           w={{ base: "100%", md: "80%" }}
-          p={"2rem"}
+          p={"6rem"}
         >
           <Box>
             <Image src={Img} alt="Notes" />
@@ -62,7 +62,7 @@ const Home = () => {
                     // variant={"outline"}
                     _hover={{ bg: "#90ee90", color: "#091e17" }}
                   >
-                    SingUp
+                    SignUp
                   </Button>
                 </Link>
               </>
